@@ -1,0 +1,175 @@
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(52, 52, 52);
+}
+
+.shown {
+    display: inline;
+}
+.hidden {
+    display: none;
+}
+
+
+
+
+.title h1{
+    color: white;
+    text-align: center;
+}
+.title p {
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+/* Pokemon selection */
+.supraContainer {
+    display: flex;
+    width: 1000px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.container {
+    width: 210px;
+    height: 294px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../sprites/cards/card.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+}
+.PkmnHover {
+    border: 4px solid #fee164
+}
+.PkmnClick {
+    border: 4px solid #ff7308
+}
+
+.container img {
+    height: 90px;
+}
+.container p {
+    margin-top: 8px;
+}
+
+
+
+
+
+/* combat */
+.supraDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.screen {
+    background-image: url("../sprites/bg/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 950px;
+    height: 75%;
+}
+
+.fighter {
+    width: 100%;
+    display: flex;
+}
+.fighter:first-of-type {
+    /* background-color: rgba(255, 0, 0, 0.363);   */
+    height: 55%;  
+}
+.fighter:last-of-type {
+    /* background-color: rgba(59, 173, 39, 0.707); */
+    height: 45%;
+}
+
+.ui {
+    /* background-color: blue; */
+    width: 45%;
+    height: 100%;
+}
+.fighter:last-of-type .ui {
+    order: 2;
+}
+
+.pkmn {
+    /* background-color: rgba(0, 128, 0, 0.108); */
+    width: 55%;
+    height: 100%;
+    display: flex;
+
+}
+.fighter:last-of-type .pkmn {
+    overflow: hidden;
+}
+
+.fighter:first-of-type .pkmn img {
+    position: relative;
+    top: 80px;
+    left: 200px;
+}
+.fighter:last-of-type .pkmn img {
+    top: 10px;
+    left: 30px;
+    position: relative;
+}
+
+.uiDiv {
+    position: relative;
+    top: 100px;
+    left: 60px;
+
+    background-color: white;
+    height: 40px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 4px;
+}
+.uiDiv p {
+    margin: 0;
+}
+.progressBar {
+    background-color: white;
+    width: 240px;
+    height: 12px;
+    border: 2px solid black;
+    border-radius: 30px;
+    overflow: hidden; 
+}
+.progress {
+    background-color: green;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.textDiv {
+    background-color: white;
+    width: 942px;
+    height: 25%;
+    border: 4px double black;
+}
