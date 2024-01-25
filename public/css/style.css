@@ -205,9 +205,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
 }
-.atkText {
+/* .atkText {
     color: white;
     font-size: 2rem;
     margin: 0;
-}
+} */

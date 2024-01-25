@@ -98,12 +98,14 @@ atkDiv = textDiv.querySelector(".atkDiv")
 for (let i = 0; i < 4; i++) {
     let atkBox = document.createElement("div")
     atkBox.classList.add("atkBox")
+    atkBox.innerText = "attaque"
     atkDiv.appendChild(atkBox)
     atkBox = atkDiv.querySelector(".atkBox:last-of-type")
 
-    let atkText = document.createElement("p")
-    atkText.classList.add("atkText")
-    atkText.innerHTML = "attaque"
-    atkBox.appendChild(atkText)
-
+    // let atkText = document.createElement("p")
+    // atkText.classList.add("atkText")
+    // atkText.innerHTML = "attaque"
+    // atkBox.appendChild(atkText)
 }
+
+atkDiv.addEventListener("click", events.atk)
