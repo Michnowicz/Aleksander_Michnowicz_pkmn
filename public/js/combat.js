@@ -77,3 +77,33 @@ for (let i = 0; i < 2; i++) {
 let textDiv = document.createElement("div")
 textDiv.classList.add("textDiv")
 supraDiv.appendChild(textDiv)
+textDiv = supraDiv.querySelector(".textDiv")
+
+let textBox = document.createElement("div")
+textBox.classList.add("textBox")
+textDiv.appendChild(textBox)
+textBox = textDiv.querySelector(".textBox")
+
+let combatText = document.createElement("p")
+combatText.innerText = "Un pokemon sauvage apparait."
+combatText.classList.add("combatText")
+textBox.appendChild(combatText)
+
+
+let atkDiv = document.createElement("div")
+atkDiv.classList.add("atkDiv")
+textDiv.appendChild(atkDiv)
+atkDiv = textDiv.querySelector(".atkDiv")
+
+for (let i = 0; i < 4; i++) {
+    let atkBox = document.createElement("div")
+    atkBox.classList.add("atkBox")
+    atkDiv.appendChild(atkBox)
+    atkBox = atkDiv.querySelector(".atkBox:last-of-type")
+
+    let atkText = document.createElement("p")
+    atkText.classList.add("atkText")
+    atkText.innerHTML = "attaque"
+    atkBox.appendChild(atkText)
+
+}
