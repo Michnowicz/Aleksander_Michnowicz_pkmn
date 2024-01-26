@@ -103,5 +103,4 @@ let ectoplasma = new Pokemon("Ectoplasma", 261, 261, 166, 156, 296, 186, "256","
 let dracolosse = new Pokemon("Dracolosse", 323, 323, 304, 226, 236, 236, 196,"feu", "./public/sprites/dragoniteFront.gif", "./public/sprites/dragoniteBack.gif", [crocFeu, lanceFlamme, dracoQueue, boutefeu])
 
 // listes
-export let allPkmn = [florizarre, tortank, ectoplasma, dracolosse]
-export let liste = [florizarre, dracaufeu, tortank, pikachu, nidoking, leviator, ectoplasma, dracolosse]
+export let allPkmn = [florizarre, dracaufeu, tortank, pikachu, nidoking, leviator, ectoplasma, dracolosse]
