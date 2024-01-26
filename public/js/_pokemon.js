@@ -43,7 +43,6 @@ export class Pokemon {
         combatText.innerText = `${this.name} lance ${technique.name}.`
 
         let progress = document.querySelectorAll(".progress")[1]
-        console.log(progress);
         let lpLeft = ennemy.lp / (ennemy.lpMax/100)
         progress.style.width = `${lpLeft}%`
 

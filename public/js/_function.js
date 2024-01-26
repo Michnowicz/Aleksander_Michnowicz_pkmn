@@ -1,6 +1,4 @@
 
-
-
 //////////////////// selection ////////////////////
 export function selectHoverIn(e) {
     if (e.target.className.includes("container")) {
@@ -37,5 +35,6 @@ export function randomPkmn(allPkmn) {
     let randomIndex = Math.floor(Math.random()*allPkmn.length)
     return allPkmn[randomIndex]
 }
+
 
 

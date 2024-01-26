@@ -119,25 +119,50 @@ for (let i = 0; i < 4; i++) {
     atkBox = atkDiv.querySelector(".atkBox:last-of-type")
 }
 
-
 atkDiv.addEventListener("click", (e) => {
-    if (e.target.className == "atkBox") {
-        e.target.style.backgroundColor = "rgb(3, 3, 3)"
-        let test = setInterval(() => {
-            e.target.style.backgroundColor = "rgb(29, 29, 29)"
-            clearInterval(test)
-        }, 100);
-        test
+    if (player.lp > 0 && cpu.lp > 0) {
+        if (e.target.className == "atkBox") {
+            e.target.style.backgroundColor = "rgb(3, 3, 3)"
+            var flag = true
+            let test = setInterval(() => {
+                e.target.style.backgroundColor = "rgb(29, 29, 29)"
+                clearInterval(test)
+            }, 100);
+            test
+        }
+    
+        if(e.target == document.querySelector(".atkBox:nth-of-type(1)")) {
+            player.attaque(player.techniques[0], cpu)
+            btnNext.classList.toggle("hidden")
+        } else if (e.target == document.querySelector(".atkBox:nth-of-type(2)")) {
+            player.attaque(player.techniques[1], cpu)
+            btnNext.classList.toggle("hidden")
+        } else if (e.target == document.querySelector(".atkBox:nth-of-type(3)")) {
+            player.attaque(player.techniques[2], cpu)
+            btnNext.classList.toggle("hidden")
+        } else {
+            player.attaque(player.techniques[3], cpu)
+            btnNext.classList.toggle("hidden")
+        }
+    
+        atkDiv.style.pointerEvents = "none"
+        document.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                cpu.randomAttaque(player)
+                document.addEventListener("keypress", (e) => {
+                    if (e.key === "Enter") {
+                        combatText.innerText = 'Choisissez une attaque.'
+                        atkDiv.style.pointerEvents = "all"
+                    }
+                    btnNext.classList.toggle("hidden")
+                }, { once: true })
+            } 
+        }, { once: true }) 
     }
-
-    if(e.target == document.querySelector(".atkBox:nth-of-type(1)")) {
-        player.attaque(player.techniques[0], cpu)
-    } else if (e.target == document.querySelector(".atkBox:nth-of-type(2)")) {
-        player.attaque(player.techniques[1], cpu)
-    } else if (e.target == document.querySelector(".atkBox:nth-of-type(3)")) {
-        player.attaque(player.techniques[2], cpu)
-    } else {
-        player.attaque(player.techniques[3], cpu)
-    }
-    cpu.randomAttaque(player)    
 })
+
+
+
+
+
+//atkDiv.addEventListener("click", events.fight)
