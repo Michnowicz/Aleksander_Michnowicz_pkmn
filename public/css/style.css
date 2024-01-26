@@ -125,7 +125,7 @@ body {
 
 .fighter:first-of-type .pkmn img {
     position: relative;
-    top: 140px;
+    top: 110px;
     left: 200px;
 }
 .fighter:last-of-type .pkmn img {
@@ -139,10 +139,11 @@ body {
     top: 100px;
     left: 60px;
 
-    background-color: white;
-    height: 40px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    height: 60px;
     width: 300px;
-    border: 2px solid black;
+    border: 2px solid rgb(134, 134, 134);
     border-radius: 4px;
     padding: 4px;
 }
@@ -188,6 +189,12 @@ body {
     padding: 6px;
     color: white;
 }
+.btnNext {
+    height: 30px;
+    position: relative;
+    left: 520px;
+    top: 40px;
+}
 
 .atkDiv {
     height: 100%;
@@ -206,11 +213,6 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     cursor: pointer;
 }
-/* .atkText {
-    color: white;
-    font-size: 2rem;
-    margin: 0;
-} */

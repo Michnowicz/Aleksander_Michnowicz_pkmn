@@ -1,4 +1,4 @@
-import {allPkmn} from "./_pokemon.js"
+import {Technique, allPkmn} from "./_pokemon.js"
 import * as events from "./_function.js"
 
 //////////////////// combat phase ////////////////////
@@ -15,9 +15,10 @@ let screen = document.createElement("div")
 screen.classList.add("screen")
 supraDiv.appendChild(screen)
 
+let player = events.randomPkmn(allPkmn)
+let cpu = events.randomPkmn(allPkmn)
+
 for (let i = 0; i < 2; i++) {
-    let player = events.randomPkmn(allPkmn)
-    let cpu = events.randomPkmn(allPkmn)
     let screen = document.querySelector(".screen")
 
     let fighter = document.createElement("div")
@@ -53,6 +54,16 @@ for (let i = 0; i < 2; i++) {
     progress.classList.add("progress")
     progressBar.appendChild(progress)
 
+    let life = document.createElement("p")
+    life.classList.add("life")
+    if (i == 0) {
+        life.innerText = `pv: ${cpu.lp} / ${cpu.lpMax}`
+    } else {
+        life.innerText = `pv: ${player.lp} / ${player.lpMax}`
+    }
+    
+    uiDiv.appendChild(life)
+
 
     let pkmn = document.createElement("div")
     pkmn.classList.add("pkmn")
@@ -65,7 +76,7 @@ for (let i = 0; i < 2; i++) {
         img.style.height = "150px"
     } else if (i == 1) {
         img.src = player.srcBack
-        img.style.height = "400px"
+        img.style.height = "300px"
     }
     pkmn.appendChild(img)
 
@@ -89,6 +100,11 @@ combatText.innerText = "Un pokemon sauvage apparait."
 combatText.classList.add("combatText")
 textBox.appendChild(combatText)
 
+let btnNext = document.createElement("img")
+btnNext.classList.add("btnNext", "hidden")
+btnNext.src = "./public/sprites/enterWhite.png"
+textBox.appendChild(btnNext)
+
 
 let atkDiv = document.createElement("div")
 atkDiv.classList.add("atkDiv")
@@ -98,14 +114,30 @@ atkDiv = textDiv.querySelector(".atkDiv")
 for (let i = 0; i < 4; i++) {
     let atkBox = document.createElement("div")
     atkBox.classList.add("atkBox")
-    atkBox.innerText = "attaque"
+    atkBox.innerText = `${player.techniques[i].name}`
     atkDiv.appendChild(atkBox)
     atkBox = atkDiv.querySelector(".atkBox:last-of-type")
-
-    // let atkText = document.createElement("p")
-    // atkText.classList.add("atkText")
-    // atkText.innerHTML = "attaque"
-    // atkBox.appendChild(atkText)
 }
 
-atkDiv.addEventListener("click", events.atk)
+
+atkDiv.addEventListener("click", (e) => {
+    if (e.target.className == "atkBox") {
+        e.target.style.backgroundColor = "rgb(3, 3, 3)"
+        let test = setInterval(() => {
+            e.target.style.backgroundColor = "rgb(29, 29, 29)"
+            clearInterval(test)
+        }, 100);
+        test
+    }
+
+    if(e.target == document.querySelector(".atkBox:nth-of-type(1)")) {
+        player.attaque(player.techniques[0], cpu)
+    } else if (e.target == document.querySelector(".atkBox:nth-of-type(2)")) {
+        player.attaque(player.techniques[1], cpu)
+    } else if (e.target == document.querySelector(".atkBox:nth-of-type(3)")) {
+        player.attaque(player.techniques[2], cpu)
+    } else {
+        player.attaque(player.techniques[3], cpu)
+    }
+    cpu.randomAttaque(player)    
+})
