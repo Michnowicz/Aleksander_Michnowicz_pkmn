@@ -79,6 +79,7 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 
@@ -174,7 +175,7 @@ body {
     height: 25%;
     border: 4px double rgb(134, 134, 134);
     display: flex;
-    font-family: 'PT Sans Narrow', sans-serif;
+   
 }
 
 .textBox {

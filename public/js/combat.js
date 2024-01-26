@@ -16,7 +16,10 @@ screen.classList.add("screen")
 supraDiv.appendChild(screen)
 
 let player = events.randomPkmn(allPkmn)
-let cpu = events.randomPkmn(allPkmn)
+let cpu = events.randomPkmn(allPkmn) 
+do {
+    cpu = events.randomPkmn(allPkmn) 
+} while (cpu == player);
 
 for (let i = 0; i < 2; i++) {
     let screen = document.querySelector(".screen")
@@ -120,17 +123,18 @@ for (let i = 0; i < 4; i++) {
 }
 
 atkDiv.addEventListener("click", (e) => {
-    if (player.lp > 0 && cpu.lp > 0) {
-        if (e.target.className == "atkBox") {
-            e.target.style.backgroundColor = "rgb(3, 3, 3)"
-            var flag = true
-            let test = setInterval(() => {
-                e.target.style.backgroundColor = "rgb(29, 29, 29)"
-                clearInterval(test)
-            }, 100);
-            test
-        }
-    
+    //style au clique
+    if (e.target.className == "atkBox") {
+        e.target.style.backgroundColor = "rgb(3, 3, 3)"
+        var flag = true
+        let test = setInterval(() => {
+            e.target.style.backgroundColor = "rgb(29, 29, 29)"
+            clearInterval(test)
+        }, 100);
+        test
+    }
+    //attaque joueur
+    if (player.lp > 0) {
         if(e.target == document.querySelector(".atkBox:nth-of-type(1)")) {
             player.attaque(player.techniques[0], cpu)
             btnNext.classList.toggle("hidden")
@@ -144,7 +148,14 @@ atkDiv.addEventListener("click", (e) => {
             player.attaque(player.techniques[3], cpu)
             btnNext.classList.toggle("hidden")
         }
-    
+        if (cpu.lp == 0) {
+            combatText.innerText = `${cpu.name} est vaincu.`
+            atkDiv.style.pointerEvents = "none"
+            btnNext.classList.toggle("hidden")
+        }
+    }
+    //attaque ennemie
+    if (cpu.lp > 0) {
         atkDiv.style.pointerEvents = "none"
         document.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
@@ -159,10 +170,10 @@ atkDiv.addEventListener("click", (e) => {
             } 
         }, { once: true }) 
     }
+    if (player.lp == 0) {
+        combatText.innerText = `${player.name} est vaincu.`
+        atkDiv.style.pointerEvents = "none"
+        btnNext.classList.toggle("hidden")
+    }
 })
 
-
-
-
-
-//atkDiv.addEventListener("click", events.fight)
