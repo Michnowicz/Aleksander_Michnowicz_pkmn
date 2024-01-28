@@ -1,6 +1,6 @@
 
 export class Pokemon {
-    constructor(name, lp, lpMax, atk, def, atkSpe, defSpe, speed, type, srcFront, srcBack, techniques) {
+    constructor(name, lp, lpMax, atk, def, atkSpe, defSpe, speed, type, srcFront, srcBack, art, techniques) {
         this.name = name
         this.lp = lp
         this.lpMax = lpMax
@@ -12,6 +12,7 @@ export class Pokemon {
         this.type = type
         this.srcFront = srcFront
         this.srcBack = srcBack
+        this.art = art
         this.techniques = techniques
     }
     attaque(technique, ennemy) {
@@ -93,14 +94,14 @@ let poingOmbre = new Technique("poing ombre", 75)
 let lechouille = new Technique("lechouille", 50)
 
 //////////////////// pokemon ////////////////////
-let florizarre = new Pokemon("Florizarre", 301, 301, 200, 202, 236, 236, 196, "plante", "./public/sprites/venusaurFront.gif", "./public/sprites/venusaurBack.gif", [lanceSoleil, fouetLiane, ecoSphere, trancheHerbe])
-let dracaufeu  = new Pokemon("Dracaufeu", 297, 297, 204, 192, 254, 206, 236, "feu", "./public/sprites/charizardFront.gif", "./public/sprites/charizardBack.gif", [crocFeu, lanceFlamme, dracoQueue, boutefeu])
-let tortank = new Pokemon("Tortank", 299, 299, 202, 236, 206, 246, 192,"eau", "./public/sprites/blastoiseFront.gif", "./public/sprites/blastoiseBack.gif", [surf, hydrocannon, hydroQueue, aquajet])
-let pikachu = new Pokemon("Pikachu", 211, 211, 146, 96, 136, 116, 216,"electrique", "./public/sprites/pikachuFront.gif", "./public/sprites/pikachuBack.gif", [poingEclair, tonerre, bouleElek, eclair])
-let nidoking = new Pokemon("Nidoking", 303, 303, 220, 190, 206, 186, 206,"poison", "./public/sprites/nidokingFront.gif", "./public/sprites/nidokingBack.gif", [dardVenin, directToxic, toxic, bombBeurk])
-let leviator = new Pokemon("Leviator",331, 331, 286, 194, 156, 236, 198,"eau", "./public/sprites/gyaradosFront.gif", "./public/sprites/gyaradosBack.gif", [surf, hydrocannon, hydroQueue, aquajet])
-let ectoplasma = new Pokemon("Ectoplasma", 261, 261, 166, 156, 296, 186, "256","spectre", "./public/sprites/gengarFront.gif", "./public/sprites/gengarBack.gif", [vibropscure, ballOmbre, poingOmbre, lechouille])
-let dracolosse = new Pokemon("Dracolosse", 323, 323, 304, 226, 236, 236, 196,"feu", "./public/sprites/dragoniteFront.gif", "./public/sprites/dragoniteBack.gif", [crocFeu, lanceFlamme, dracoQueue, boutefeu])
+let florizarre = new Pokemon("Florizarre", 301, 301, 200, 202, 236, 236, 196, "plante", "./public/sprites/venusaurFront.gif", "./public/sprites/venusaurBack.gif","./public/sprites/cards/florizarre.png", [lanceSoleil, fouetLiane, ecoSphere, trancheHerbe])
+let dracaufeu  = new Pokemon("Dracaufeu", 297, 297, 204, 192, 254, 206, 236, "feu", "./public/sprites/charizardFront.gif", "./public/sprites/charizardBack.gif","./public/sprites/cards/dracaufeu.png", [crocFeu, lanceFlamme, dracoQueue, boutefeu])
+let tortank = new Pokemon("Tortank", 299, 299, 202, 236, 206, 246, 192,"eau", "./public/sprites/blastoiseFront.gif", "./public/sprites/blastoiseBack.gif","./public/sprites/cards/tortank.png", [surf, hydrocannon, hydroQueue, aquajet])
+let pikachu = new Pokemon("Pikachu", 211, 211, 146, 96, 136, 116, 216,"electrique", "./public/sprites/pikachuFront.gif", "./public/sprites/pikachuBack.gif","./public/sprites/cards/pikachu.png", [poingEclair, tonerre, bouleElek, eclair])
+let nidoking = new Pokemon("Nidoking", 303, 303, 220, 190, 206, 186, 206,"poison", "./public/sprites/nidokingFront.gif", "./public/sprites/nidokingBack.gif","./public/sprites/cards/nidoking.png", [dardVenin, directToxic, toxic, bombBeurk])
+let leviator = new Pokemon("Leviator",331, 331, 286, 194, 156, 236, 198,"eau", "./public/sprites/gyaradosFront.gif", "./public/sprites/gyaradosBack.gif","./public/sprites/cards/leviator.png", [surf, hydrocannon, hydroQueue, aquajet])
+let ectoplasma = new Pokemon("Ectoplasma", 261, 261, 166, 156, 296, 186, "256","spectre", "./public/sprites/gengarFront.gif", "./public/sprites/gengarBack.gif","./public/sprites/cards/ectoplasma.png", [vibropscure, ballOmbre, poingOmbre, lechouille])
+let dracolosse = new Pokemon("Dracolosse", 323, 323, 304, 226, 236, 236, 196,"feu", "./public/sprites/dragoniteFront.gif", "./public/sprites/dragoniteBack.gif","./public/sprites/cards/dracolosse.png", [crocFeu, lanceFlamme, dracoQueue, boutefeu])
 
 // listes
 export let allPkmn = [florizarre, dracaufeu, tortank, pikachu, nidoking, leviator, ectoplasma, dracolosse]

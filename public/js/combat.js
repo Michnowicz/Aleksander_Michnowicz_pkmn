@@ -152,6 +152,7 @@ atkDiv.addEventListener("click", (e) => {
             combatText.innerText = `${cpu.name} est vaincu.`
             atkDiv.style.pointerEvents = "none"
             btnNext.classList.toggle("hidden")
+            document.style.pointerEvents = "none"
         }
     }
     //attaque ennemie
@@ -174,6 +175,6 @@ atkDiv.addEventListener("click", (e) => {
         combatText.innerText = `${player.name} est vaincu.`
         atkDiv.style.pointerEvents = "none"
         btnNext.classList.toggle("hidden")
+        document.style.pointerEvents = "none"
     }
 })
-
