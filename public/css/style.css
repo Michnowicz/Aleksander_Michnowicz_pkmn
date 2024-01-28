@@ -148,10 +148,8 @@ body {
     width: 55%;
     height: 100%;
     display: flex;
-
-}
-.fighter:last-of-type .pkmn {
     overflow: hidden;
+
 }
 
 .fighter:first-of-type .pkmn img {
